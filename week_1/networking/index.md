@@ -1,6 +1,6 @@
 ## Computer Networking 
 
-It plays a vital role in the Backend engineering that helps by allowing the server must be talk to the databases, caches, client app etc. over the network. 
+It is a fundamental to Backend engineering because backend systems communicate with the clients, dbs, caches, message broker, external APIs and other services over the network.  
 
 ### Why it matters 
    ```
@@ -11,6 +11,10 @@ It plays a vital role in the Backend engineering that helps by allowing the serv
         3. Safety : User data shoule be secure over the network.
         
         4. Scale : Handles the large traffic of a scaling app.
+
+        5. Latency : How long does one request take ?
+
+        6. Throughput : How much data can the system process per unit of time.
    ```
 
 ### How to Understand it 

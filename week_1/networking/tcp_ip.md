@@ -9,7 +9,14 @@
 - It is a connection less protocol means no idea about the previous packet or target does not send an ACK to the source.
 
 ```
-TCP (Transmission Control Protocol) is used in conjuction with IP in oder to maintain a connection between the sender and the receiver, to ensure the packet order and no loss of data.
+TCP (Transmission Control Protocol) is used in conjuction with IP. 
+
+It provides - 
+  1. reliable delivery
+  2. ordered delivery
+  3. retransmission
+  4. acknowledgements
+  5. Flow control - Means the receiver tells the sender that how much data it can currently accept.
 ```
 
 *** IP : Addressing & delivering system ***
@@ -37,7 +44,7 @@ Before sending any real data, TCP does a quick exchange.
 
 #### Set of rules for IP 
 
-1. Every device must have a unique IP address
+1. Every devices can share IP addresses in different contexts. And private IP addresses are not globally unique.
 2. Every packet must carry source and the destination IP.
 3. Each packet is sent independently
 4. Routers read only the destination IP with the help of IP information.
@@ -47,14 +54,25 @@ Before sending any real data, TCP does a quick exchange.
 #### Why need to handle the packet Ordering ??
 
 Because packets can take differnet paths through the internet ( made up of millions of differenr networks/machines). If they don't reorder then it will be consider as garbage & the unreadable data.
-So for this, attaching a sequence number to eack packet for re-ordering helps to gets back the same format of packets.
 
+TCP is a byte-stream protocol.
+
+Sequence numbers identify positions in that byte stream.
+
+The receiver uses them to determine what data
+has arrived, what is missing, and how to reconstruct
+the original byte stream.
 
 ```
-TCP breaks the data into segments; IP then wraps segments into a packets. The reason of breaking data down is as - 
-  1. Networks can only carry the smaller chuncks at a time.
-  2. Smaller chucks are easier to resend.
-  3. Prevent one huge transfer from hogging the entire network.
+Application data
+      ↓
+TCP segment
+      ↓
+IP packet
+      ↓
+Link-layer frame
+
+*** This is a simplified encapsulation model ***
 
 ```
 
